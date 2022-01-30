@@ -1,9 +1,6 @@
 FROM alpine:3.15.0
 
-RUN mkdir /data /data/config /data/certs /data/ssh /var/lib/icinga2;\
-    ln -s /data/config /etc/icinga2;\
-    ln -s /data/certs /var/lib/icinga2/certs;\
-    apk add --no-cache\
+RUN apk add --no-cache\
 	bash\
 	git\
 	icinga2\
@@ -11,8 +8,7 @@ RUN mkdir /data /data/config /data/certs /data/ssh /var/lib/icinga2;\
 	openssh\
 	sudo;\
     echo 'icinga ALL=(ALL) NOPASSWD: /usr/sbin/icinga2, /sbin/apk del icinga2, /sbin/apk add icinga2 ' > /etc/sudoers.d/icinga;\
-    chown icinga:icinga /var/lib/icinga2 ;\
-    chown icinga:icinga /data -R
+    chown icinga:icinga /var/lib/icinga2
     
 
 COPY --chown=icinga:icinga docker-entrypoint.sh /
