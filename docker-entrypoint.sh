@@ -17,6 +17,7 @@ if [ "${CONFIG_MODE}" == "git" ]; then
 	fi
 	if [ "${CONFIG_GIT_REPO}" ]; then
 		export GIT_SSH_COMMAND="ssh -i /data/.ssh/id_rsa"
+		rm -rf /data/config/*
 		git clone ${CONFIG_GIT_REPO} /data/config
 	else
 		echo "NO GIT REPO FOUND, CHECK 'CONFIG_GIT_REPO'"
@@ -38,8 +39,6 @@ else
 fi
 
 # Certificate Handling
-
-touch /data/certs/aaaaa.key
 
 ls /data/certs/*.crt &> /dev/null || (echo "Certificate Not Found, Freaking Out" && exit 1)
 ls /data/certs/*.key &> /dev/null || (echo "Key Not Found, Freaking Out" && exit 1)
