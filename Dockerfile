@@ -1,6 +1,6 @@
 FROM alpine:3.15.0
 
-RUN mkdir /data /data/config /data/certs /var/lib/icinga2;\
+RUN mkdir /data /data/config /data/certs /data/ssh /var/lib/icinga2;\
     ln -s /data/config /etc/icinga2;\
     ln -s /data/certs /var/lib/icinga2/certs;\
     apk add --no-cache\

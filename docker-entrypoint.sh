@@ -3,15 +3,15 @@
 # Config Handling
 if [ "${CONFIG_MODE}" == "git" ]; then
 	echo "CONFIG MODE IS GIT"
-	if [ -f "/data/.ssh/id_rsa" ]; then
+	if [ -f "/data/ssh/id_rsa" ]; then
 		echo "SSH Key Configured"
 	else
 		echo "No SSH Key detected, Generating"
 		mkdir /data/.ssh
-		ssh-keygen -b 2048 -t rsa -f /data/.ssh/id_rsa -q -N ""
+		ssh-keygen -b 2048 -t rsa -f /data/ssh/id_rsa -q -N ""
 		echo "SSH Keygen Successful, add this to your SCM:"
 		echo "############################################"
-		cat /data/.ssh/id_rsa.pub
+		cat /data/ssh/id_rsa.pub
 		echo "############################################"
 
 	fi
