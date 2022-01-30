@@ -16,7 +16,7 @@ if [ "${CONFIG_MODE}" == "git" ]; then
 
 	fi
 	if [ "${CONFIG_GIT_REPO}" ]; then
-		export GIT_SSH_COMMAND="ssh -i /data/.ssh/id_rsa"
+		export GIT_SSH_COMMAND="ssh -i /data/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 		rm -rf /data/config/*
 		git clone ${CONFIG_GIT_REPO} /data/config
 	else
