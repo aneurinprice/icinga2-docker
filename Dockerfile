@@ -7,7 +7,7 @@ RUN apk add --no-cache\
 	monitoring-plugins\
 	openssh\
 	sudo;\
-    echo 'icinga ALL=(ALL) NOPASSWD: /usr/sbin/icinga2, /sbin/apk del icinga2, /sbin/apk add icinga2, /bin/cp /var/lib/icinga2/ca/ca.crt /var/lib/icinga2/certs/ca.crt' > /etc/sudoers.d/icinga;\
+    echo 'icinga ALL=(ALL) NOPASSWD: /usr/sbin/icinga2, /sbin/apk del icinga2, /sbin/apk add icinga2' > /etc/sudoers.d/icinga;\
     chown icinga:icinga /var/lib/icinga2
     
 
