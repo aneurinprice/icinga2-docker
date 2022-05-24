@@ -2,6 +2,7 @@ FROM alpine:3.15.0
 
 RUN apk add --no-cache\
 	bash\
+	curl\
 	git\
 	icinga2\
 	monitoring-plugins\
